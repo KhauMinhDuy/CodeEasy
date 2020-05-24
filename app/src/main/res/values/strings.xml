@@ -9,4 +9,10 @@
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="register_email">Register Email</string>
     <string name="config_password">Config Password</string>
+    <string name="html">HTML</string>
+    <string name="css">CSS</string>
+    <string name="boostrap">Bootstrap</string>
+    <string name="js">JS</string>
+    <string name="react">React</string>
+    <string name="note">Note</string>
 </resources>

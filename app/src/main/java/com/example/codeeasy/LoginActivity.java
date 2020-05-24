@@ -120,8 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     if (user.isEmailVerified()) {
-                        Toast.makeText(LoginActivity.this, "Email success", Toast.LENGTH_SHORT).show();
-
+                        //
                     } else {
                         Toast.makeText(LoginActivity.this, "Check email", Toast.LENGTH_SHORT).show();
                         FirebaseAuth.getInstance().signOut();
@@ -139,7 +138,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(LoginActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
+                            Intent intentCourse = new Intent(LoginActivity.this, CourseActivity.class);
+                            startActivity(intentCourse);
                         }
                     }
                 })

@@ -1,9 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CourseActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".CourseActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_html"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="#B0000000"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_html"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@drawable/border_course_html"
+        android:text="@string/html"
+        android:fontFamily="sans-serif"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout_html"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout_html"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout_html"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout_html" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_css_bootstrap"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="#B0000000"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_html">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_css"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="@string/css"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:background="@drawable/border_course_css"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout_css_bootstrap"
+        app:layout_constraintEnd_toStartOf="@+id/button_bootstrap"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout_css_bootstrap"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout_css_bootstrap" />
+
+    <Button
+        android:id="@+id/button_bootstrap"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="@string/boostrap"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif"
+        android:background="@drawable/border_course_bootstrap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_css"
+        app:layout_constraintTop_toTopOf="@+id/button_css" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="#B0000000"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_css_bootstrap">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_react"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="@string/react"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif"
+        android:background="@drawable/border_course_react"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_js"
+        app:layout_constraintTop_toTopOf="@+id/button_js" />
+
+    <Button
+        android:id="@+id/button_js"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="@string/js"
+        android:fontFamily="sans-serif"
+        android:textAllCaps="false"
+        android:background="@drawable/border_course_js"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toStartOf="@+id/button_react"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout4" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:background="#B0000000"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_note"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:text="@string/note"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:fontFamily="sans-serif"
+        android:background="@drawable/border_course_note"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
