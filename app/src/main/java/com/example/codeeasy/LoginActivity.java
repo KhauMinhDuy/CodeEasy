@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private static int REQUEST_CODE = 1;
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         setControl();
         setupFirebaseAuth();
         setEvent();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button_Login:
-//                    Toast.makeText(MainActivity.this, "Login", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(LoginActivity.this, "Login", Toast.LENGTH_SHORT).show();
                     signIn(_edEmail.getText().toString(), _edPassword.getText().toString());
                     break;
                 case R.id.button_Register:
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(intent, REQUEST_CODE);
                     break;
                 case R.id.button_SignIn_gg:
-                    Toast.makeText(MainActivity.this, "Sign In Google", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Sign In Google", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -120,10 +120,10 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     if (user.isEmailVerified()) {
-                        Toast.makeText(MainActivity.this, "Email success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Email success", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Toast.makeText(MainActivity.this, "Check email", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Check email", Toast.LENGTH_SHORT).show();
                         FirebaseAuth.getInstance().signOut();
                     }
                 } else {
@@ -138,13 +138,15 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(MainActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
+                        if (task.isSuccessful()) {
+                            Toast.makeText(LoginActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MainActivity.this, "Sign In Fail", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Sign In Fail", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
