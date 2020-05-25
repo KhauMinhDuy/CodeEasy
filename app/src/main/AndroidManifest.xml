@@ -22,6 +22,14 @@
         <activity android:name=".CourseActivity">
 
         </activity>
+        <activity
+            android:name=".HTMLCourseActivity"
+            android:label="HTML">
+
+        </activity>
+        <activity android:name=".HTMLLessonActivity">
+
+        </activity>
     </application>
 
 </manifest>

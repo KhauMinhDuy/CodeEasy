@@ -1,6 +1,7 @@
 package com.example.codeeasy;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
+    private DatabaseOpenHelper db;
     private EditText _edEmail, _edPassword;
     private Button _btnLogin, _btnRegister, _btnLoginGoogle;
 
@@ -36,9 +38,17 @@ public class LoginActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
+        db = new DatabaseOpenHelper(this);
+        SQLiteDatabase sql = db.getReadableDatabase();
         setControl();
         setupFirebaseAuth();
         setEvent();
+    }
+
+    @Override
+    protected void onDestroy() {
+        db.close();
+        super.onDestroy();
     }
 
     /*

@@ -8,7 +8,7 @@
     tools:context=".RegisterActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/cardView_logo_register"
         android:layout_width="106dp"
         android:layout_height="106dp"
         android:layout_marginTop="50dp"
@@ -36,7 +36,7 @@
         android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView_logo_register" />
 
     <EditText
         android:id="@+id/editText_register_email"

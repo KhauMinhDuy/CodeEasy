@@ -15,4 +15,11 @@
     <string name="js">JS</string>
     <string name="react">React</string>
     <string name="note">Note</string>
+    <string name="fundamentals">Fundamentals</string>
+    <string name="todo">TODO</string>
+    <string name="advanced">Advanced</string>
+    <string name="interview">Interview</string>
+    <string name="exercise">Exercise</string>
+    <string name="lesson_1">Lesson 1</string>
+    <string name="what_is_html">What is HTML</string>
 </resources>
