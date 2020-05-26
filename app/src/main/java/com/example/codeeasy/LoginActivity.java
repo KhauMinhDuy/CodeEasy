@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private DatabaseOpenHelper db;
     private EditText _edEmail, _edPassword;
     private Button _btnLogin, _btnRegister, _btnLoginGoogle;
+    private TextView tvResendEmail, tvForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,8 @@ public class LoginActivity extends AppCompatActivity {
         _btnLogin = findViewById(R.id.button_Login);
         _btnRegister = findViewById(R.id.button_Register);
         _btnLoginGoogle = findViewById(R.id.button_SignIn_gg);
+        tvResendEmail = findViewById(R.id.textView_resend_email);
+        tvForgotPassword = findViewById(R.id.textView_forgot_pw);
     }
 
     /*
@@ -70,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         _btnLogin.setOnClickListener(listener);
         _btnRegister.setOnClickListener(listener);
         _btnLoginGoogle.setOnClickListener(listener);
+        tvResendEmail.setOnClickListener(listener);
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
@@ -77,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.button_Login:
-//                    Toast.makeText(LoginActivity.this, "Login", Toast.LENGTH_SHORT).show();
                     signIn(_edEmail.getText().toString(), _edPassword.getText().toString());
                     break;
                 case R.id.button_Register:
@@ -86,6 +90,10 @@ public class LoginActivity extends AppCompatActivity {
                     break;
                 case R.id.button_SignIn_gg:
                     Toast.makeText(LoginActivity.this, "Sign In Google", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.textView_resend_email:
+                    ResendEmail resendEmail = new ResendEmail();
+                    resendEmail.show(getSupportFragmentManager(), "dialog_resend_email_verification");
                     break;
             }
         }
@@ -130,7 +138,9 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     if (user.isEmailVerified()) {
-                        //
+                        Intent intentCourse = new Intent(LoginActivity.this, CourseActivity.class);
+                        startActivity(intentCourse);
+                        finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "Check email", Toast.LENGTH_SHORT).show();
                         FirebaseAuth.getInstance().signOut();
@@ -143,24 +153,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void signIn(String email, String password) {
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-//                            Toast.makeText(LoginActivity.this, "Sign In Success", Toast.LENGTH_SHORT).show();
-                            // asdf
-                            Intent intentCourse = new Intent(LoginActivity.this, CourseActivity.class);
-                            startActivity(intentCourse);
+        if (!isEmpty(email) && !isEmpty(password)) {
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            //
                         }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, "Sign In Fail", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(LoginActivity.this, "Sign In Fail", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(this, "FIll email and password", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    private boolean isEmpty(String email) {
+        return email.equals("");
     }
 
 

@@ -90,13 +90,11 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d("Register", "" + FirebaseAuth.getInstance().getCurrentUser().getUid());
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            sendEmail();
+                            sendEmailVerification();
                             mAuth.signOut();
                             redirectLogin();
                         } else {
-                            Log.d("Register", "Fail");
+                            Toast.makeText(RegisterActivity.this, "Register Fail", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -117,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity {
     /*
        ------------------------Send Email------------------------
         */
-    private void sendEmail() {
+    private void sendEmailVerification() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             user.sendEmailVerification()

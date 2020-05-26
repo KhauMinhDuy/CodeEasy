@@ -23,7 +23,6 @@ public class DatabaseContract {
         public static final String COLUMN_LESSON_ID = "Lesson_ID";
         public static final String COLUMN_LESSON_TITLE = "Lesson_Title";
         public static final String COLUMN_COURSE_ID = "Course_ID";
-
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY, " +

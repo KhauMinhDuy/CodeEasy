@@ -22,4 +22,8 @@
     <string name="exercise">Exercise</string>
     <string name="lesson_1">Lesson 1</string>
     <string name="what_is_html">What is HTML</string>
+    <string name="resend_verification_email">Resend Verification Email</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="resend_email">Resend Email</string>
 </resources>
