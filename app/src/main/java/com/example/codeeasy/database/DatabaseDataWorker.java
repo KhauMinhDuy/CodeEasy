@@ -1,4 +1,4 @@
-package com.example.codeeasy;
+package com.example.codeeasy.database;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;

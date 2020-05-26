@@ -1,4 +1,4 @@
-package com.example.codeeasy;
+package com.example.codeeasy.login;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.codeeasy.CourseActivity;
+import com.example.codeeasy.R;
+import com.example.codeeasy.database.DatabaseOpenHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -170,9 +173,7 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "FIll email and password", Toast.LENGTH_SHORT).show();
         }
-
     }
-
 
     private boolean isEmpty(String email) {
         return email.equals("");
