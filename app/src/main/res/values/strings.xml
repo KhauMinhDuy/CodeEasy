@@ -28,4 +28,9 @@
     <string name="resend_email">Resend Email</string>
     <string name="success">Success</string>
     <string name="ok">OK</string>
+    <string name="lesson_2">Lesson 2</string>
+    <string name="exit">Exit</string>
+    <string name="become_a_web_developer">Become A Web Developer</string>
+    <string name="admin">Admin</string>
+    <string name="activity_empty">Activity Empty</string>
 </resources>

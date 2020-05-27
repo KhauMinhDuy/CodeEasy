@@ -143,7 +143,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif"
-        android:text="@string/become_a_web_developer"
+        android:text="@string/admin"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout_html"

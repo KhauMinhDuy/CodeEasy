@@ -15,9 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.codeeasy.CourseActivity;
 import com.example.codeeasy.R;
 import com.example.codeeasy.admin.AdminActivity;
+import com.example.codeeasy.courses.CourseActivity;
 import com.example.codeeasy.database.DatabaseOpenHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -168,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
         if (email.equals(EMAIL_ADMIN) && password.equals(PASSWORD_ADMIN)) {
             Intent intentAdmin = new Intent(LoginActivity.this, AdminActivity.class);
             startActivity(intentAdmin);
-//            finish();
+            finish();
         } else if (!isEmpty(email) && !isEmpty(password)) {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

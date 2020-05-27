@@ -1,6 +1,7 @@
 package com.example.codeeasy.courses.html;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +15,14 @@ import com.example.codeeasy.R;
 
 import java.util.List;
 
-public class FundRecycleviewHoder extends RecyclerView.Adapter<FundRecycleviewHoder.ViewHoder> {
+public class FundRecyclerviewAdapter extends RecyclerView.Adapter<FundRecyclerviewAdapter.ViewHoder> {
 
     private final Context mContext;
     private final LayoutInflater layoutInflater;
     private final List<String> HTMLLesson;
     private final List<String> HTMLTitle;
 
-    public FundRecycleviewHoder(Context mContext, List<String> htmlLesson, List<String> htmlTitle) {
+    public FundRecyclerviewAdapter(Context mContext, List<String> htmlLesson, List<String> htmlTitle) {
         this.mContext = mContext;
         layoutInflater = LayoutInflater.from(mContext);
         HTMLLesson = htmlLesson;
@@ -40,6 +41,7 @@ public class FundRecycleviewHoder extends RecyclerView.Adapter<FundRecycleviewHo
         holder.icon.setImageResource(R.drawable.ic_iconfinder_22_940979);
         holder.textLesson.setText(HTMLLesson.get(position));
         holder.textTitle.setText(HTMLTitle.get(position));
+        holder.mCurrentPosition = position;
     }
 
     @Override
@@ -51,12 +53,21 @@ public class FundRecycleviewHoder extends RecyclerView.Adapter<FundRecycleviewHo
 
         public final TextView textLesson, textTitle;
         public final ImageView icon;
+        public int mCurrentPosition;
 
         public ViewHoder(@NonNull View itemView) {
             super(itemView);
             icon = itemView.findViewById(R.id.imageView_htmlfund);
             textLesson = itemView.findViewById(R.id.textView_htmfund_item_lesson);
             textTitle = itemView.findViewById(R.id.textView_htmlfund_item_titile);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, LessonActivity.class);
+                    intent.putExtra("position", mCurrentPosition);
+                    mContext.startActivity(intent);
+                }
+            });
 
         }
     }

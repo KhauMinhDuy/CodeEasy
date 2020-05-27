@@ -1,4 +1,4 @@
-package com.example.codeeasy;
+package com.example.codeeasy.courses;
 
 import android.view.View;
 import android.view.ViewGroup;
