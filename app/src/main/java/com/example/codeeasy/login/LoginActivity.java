@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.codeeasy.CourseActivity;
 import com.example.codeeasy.R;
+import com.example.codeeasy.admin.AdminActivity;
 import com.example.codeeasy.database.DatabaseOpenHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,6 +30,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private static int REQUEST_CODE = 1;
+    private static final String EMAIL_ADMIN = "admin@codeeasy.com";
+    private static final String PASSWORD_ADMIN = "Aa123456";
 
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -78,6 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         _btnRegister.setOnClickListener(listener);
         _btnLoginGoogle.setOnClickListener(listener);
         tvResendEmail.setOnClickListener(listener);
+        tvForgotPassword.setOnClickListener(listener);
     }
 
     View.OnClickListener listener = new View.OnClickListener() {
@@ -97,6 +101,10 @@ public class LoginActivity extends AppCompatActivity {
                 case R.id.textView_resend_email:
                     ResendEmail resendEmail = new ResendEmail();
                     resendEmail.show(getSupportFragmentManager(), "dialog_resend_email_verification");
+                    break;
+                case R.id.textView_forgot_pw:
+                    ResetPassword resetPassword = new ResetPassword();
+                    resetPassword.show(getSupportFragmentManager(), "reset_password");
                     break;
             }
         }
@@ -142,6 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user != null) {
                     if (user.isEmailVerified()) {
                         Intent intentCourse = new Intent(LoginActivity.this, CourseActivity.class);
+                        intentCourse.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intentCourse);
                         finish();
                     } else {
@@ -155,8 +164,12 @@ public class LoginActivity extends AppCompatActivity {
         };
     }
 
-    private void signIn(String email, String password) {
-        if (!isEmpty(email) && !isEmpty(password)) {
+    private void signIn(final String email, String password) {
+        if (email.equals(EMAIL_ADMIN) && password.equals(PASSWORD_ADMIN)) {
+            Intent intentAdmin = new Intent(LoginActivity.this, AdminActivity.class);
+            startActivity(intentAdmin);
+//            finish();
+        } else if (!isEmpty(email) && !isEmpty(password)) {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -167,7 +180,7 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(LoginActivity.this, "Sign In Fail", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {

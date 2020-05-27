@@ -26,4 +26,6 @@
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="resend_email">Resend Email</string>
+    <string name="success">Success</string>
+    <string name="ok">OK</string>
 </resources>

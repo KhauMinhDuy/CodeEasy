@@ -1,11 +1,14 @@
 package com.example.codeeasy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.codeeasy.courses.html.HTMLFundLists;
 
 public class HTMLCourseActivity extends AppCompatActivity {
 
@@ -23,7 +26,8 @@ public class HTMLCourseActivity extends AppCompatActivity {
 
 
     public void clickFundamentals(View view) {
-        Toast.makeText(this, "Fundamentals", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(HTMLCourseActivity.this, HTMLFundLists.class);
+        startActivity(intent);
     }
 
     public void clickAdvanced(View view) {
