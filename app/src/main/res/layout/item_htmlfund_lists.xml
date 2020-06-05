@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:text="@string/lesson_1"
+                android:text="Lesson 1"
                 android:fontFamily="sans-serif"
                 android:textSize="20sp"
                 android:textColor="@android:color/black"

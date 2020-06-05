@@ -33,7 +33,7 @@ public class LessonActivity extends AppCompatActivity {
         Activitys.add(R.layout.activity_lesson5_html);
         Activitys.add(R.layout.activity_lesson6_html);
         Activitys.add(R.layout.activity_lesson7_html);
-//        Activitys.add(R.layout.activity_lesson8_html);
+        Activitys.add(R.layout.activity_lesson8_html);
         for (int i = 0; i < Activitys.size(); i++) {
             Lists.add(i);
         }

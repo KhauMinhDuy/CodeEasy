@@ -20,7 +20,7 @@
     <string name="advanced">Advanced</string>
     <string name="interview">Interview</string>
     <string name="exercise">Exercise</string>
-    <string name="lesson_1">Lesson 1</string>
+    <string name="lesson_1">What is HTML?</string>
     <string name="what_is_html">What is HTML</string>
     <string name="resend_verification_email">Resend Verification Email</string>
     <string name="cancel">Cancel</string>
@@ -28,9 +28,20 @@
     <string name="resend_email">Resend Email</string>
     <string name="success">Success</string>
     <string name="ok">OK</string>
-    <string name="lesson_2">Lesson 2</string>
+    <string name="lesson_2">HTML Elements</string>
     <string name="exit">Exit</string>
     <string name="become_a_web_developer">Become A Web Developer</string>
     <string name="admin">Admin</string>
     <string name="activity_empty">Activity Empty</string>
+    <string name="p1">HTML is the standard markup language for Web pages.\nWith HTML you can create your own Website.\n</string>
+    <string name="p1_lesson2">An HTML elements is defined by a start tag, some content and an end tag</string>
+    <string name="lesson_3">HTML Attributes</string>
+    <string name="p_lesson3">An HTML Attributes provides additional information about an HTML Element</string>
+    <string name="lesson_4">HTML Headings</string>
+    <string name="p_lesson4">HTML Headings are titles or subtitles that you want to display on a webpage</string>
+    <string name="lesson_5">HTML Paragraphs</string>
+    <string name="p_lesson5">A Paragraph always starts on a new line, and is a block of text</string>
+    <string name="lesson_6">HTML Styles</string>
+    <string name="p_lesson6">The HTML Style attribute is used to add styles to an element, such as color, font, size, and more</string>
+
 </resources>

@@ -24,6 +24,12 @@ public class DatabaseDataWorker {
         insertLesson("Lesson 2", "HTML Elements", "HTML_Fund");
         insertLesson("Lesson 3", "HTML Attributes", "HTML_Fund");
         insertLesson("Lesson 4", "HTML Headings", "HTML_Fund");
+        insertLesson("Lesson 5", "HTML Paragraphs", "HTML_Fund");
+        insertLesson("Lesson 6", "HTML Styles", "HTML_Fund");
+        insertLesson("Lesson 7", "HTML Formatting", "HTML_Fund");
+        insertLesson("Lesson 8", "HTML Comment", "HTML_Fund");
+
+
     }
 
     private void insertCourse(String course_id, String course_title) {

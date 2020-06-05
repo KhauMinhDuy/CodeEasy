@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Lesson"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:fontFamily="sans-serif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/add_lesson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Lesson"
+        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/add_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Title"
+        app:layout_constraintStart_toStartOf="@+id/add_lesson"
+        app:layout_constraintTop_toBottomOf="@+id/add_lesson" />
+
+    <TextView
+        android:id="@+id/cancel_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Cancel"
+        android:textColor="#009DFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/add_title"
+        app:layout_constraintTop_toBottomOf="@+id/add_title" />
+
+    <TextView
+        android:id="@+id/confirm_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:textSize="20sp"
+        android:textColor="#009DFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cancel_add"
+        app:layout_constraintEnd_toEndOf="@+id/add_title" />
+</androidx.constraintlayout.widget.ConstraintLayout>
